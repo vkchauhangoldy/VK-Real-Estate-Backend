@@ -8,9 +8,10 @@ const propertyRoute = require("./routes/property-route");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const PORT = process.env.PORT || 8080
 connection()
   .then(() => {
-    app.listen(8080, () => console.log("Server is running at port 8080..."));
+    app.listen(PORT, () => console.log("Server is running at port 8080..."));
   })
   .catch(() => {
     console.log("Failed to connect to database!");
