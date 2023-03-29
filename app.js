@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors")
 const app = express();
 const connection = require("./connection/connection");
 const userRoute = require("./routes/user-route");
@@ -7,6 +8,8 @@ const propertyRoute = require("./routes/property-route");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 const PORT = process.env.PORT || 8080
 connection()
